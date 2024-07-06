@@ -21,3 +21,4 @@ Route::get('/cv', [CVController::class, 'getFullCV']);
 Route::patch('/cv/basic-information', [BasicInformationController::class, 'patchBasicInformation']);
 
 Route::post('/cv/work-experiences', [WorkExperienceController::class, 'createWorkExperience']);
+Route::patch('/cv/work-experiences/{id}', [WorkExperienceController::class, 'updateWorkExperience']);

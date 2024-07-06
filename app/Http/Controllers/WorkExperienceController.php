@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateWorkExperienceRequest;
+use App\Http\Requests\UpdateWorkExperienceRequest;
 use App\Http\Resources\WorkExperienceResource;
 use App\Models\User;
 use App\Models\WorkExperience;
@@ -21,6 +22,29 @@ class WorkExperienceController extends Controller
         return response()->json([
             'data' => new WorkExperienceResource($work_experience),
             'message' => 'Created data success',
+            'errors' => null,
+        ], 201);
+    }
+
+    public function updateWorkExperience(UpdateWorkExperienceRequest $request, $id)
+    {
+        $work_experience = WorkExperience::find($id);
+
+        if (!$work_experience) {
+            return response()->json([
+                'data' => null,
+                'message' => 'Work experience not found',
+                'errors' => null,
+            ], 404);
+        }
+
+        $work_experience->update(
+            $request->validated()
+        );
+
+        return response()->json([
+            'data' => new WorkExperienceResource($work_experience),
+            'message' => 'Updated data success',
             'errors' => null,
         ], 201);
     }
