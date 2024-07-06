@@ -21,16 +21,20 @@ code: 200
         "work_experiences": [
             {
                 "id": 1,
-                "period": "Aug 2023 - Dec 2023",
-                "position": "Web Developer(Internship) at PT Vidio Dot Com",
+                "from": "08-2023",
+                "to": "12-2023",
+                "position": "Web Developer(Internship)",
+                "company": "PT Vidio Dot Com",
                 "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium repudiandae porro provident ea officiis incidunt delectus? Eos, quia nostrum magnam nulla suscipit reprehenderit commodi sed quidem hic aspernatur voluptatum quasi!"
             }
         ],
         "educations": [
             {
                 "id": 1,
-                "period": "Jun 2020 - Jun 2024",
-                "university": "Universitas Negeri Surabaya",
+                "school": "Universitas Negeri Surabaya",
+                "attainment": 4,
+                "from": "08-2023",
+                "to": "12-2023",
                 "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium repudiandae porro provident ea officiis incidunt delectus? Eos, quia nostrum magnam nulla suscipit reprehenderit commodi sed quidem hic aspernatur voluptatum quasi!"
             }
         ],

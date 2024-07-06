@@ -14,4 +14,16 @@ class User extends Model
         'summary',
         'address',
     ];
+
+    public function work_experiences() {
+        return $this->hasMany(WorkExperience::class);
+    }
+
+    public function educations() {
+        return $this->hasMany(Education::class);
+    }
+
+    public function skills() {
+        return $this->hasMany(Skill::class);
+    }
 }
