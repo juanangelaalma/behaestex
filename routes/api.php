@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BasicInformationController;
 use App\Http\Controllers\CVController;
+use App\Http\Controllers\WorkExperienceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/cv', [CVController::class, 'getFullCV']);
 Route::patch('/cv/basic-information', [BasicInformationController::class, 'patchBasicInformation']);
+
+Route::post('/cv/work-experiences', [WorkExperienceController::class, 'createWorkExperience']);
