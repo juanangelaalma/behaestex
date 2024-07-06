@@ -3,8 +3,8 @@
 use App\Http\Controllers\BasicInformationController;
 use App\Http\Controllers\CVController;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\SkillController;
 use App\Http\Controllers\WorkExperienceController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +28,5 @@ Route::delete('/cv/work-experiences/{id}', [WorkExperienceController::class, 'de
 Route::post('/cv/educations', [EducationController::class, 'createEducation']);
 Route::patch('/cv/educations/{id}', [EducationController::class, 'updateEducation']);
 Route::delete('/cv/educations/{id}', [EducationController::class, 'deleteEducation']);
+
+Route::put('/cv/skills', [SkillController::class, 'updateAllSkills']);
