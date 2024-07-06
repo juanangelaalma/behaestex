@@ -48,4 +48,14 @@ class WorkExperienceController extends Controller
             'errors' => null,
         ], 201);
     }
+
+    public function deleteWorkExperience($id)
+    {
+        WorkExperience::destroy($id);
+        return response()->json([
+            'data' => true,
+            'message' => 'Delete data success',
+            'errors' => null,
+        ], 200);
+    }
 }

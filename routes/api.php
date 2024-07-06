@@ -22,3 +22,4 @@ Route::patch('/cv/basic-information', [BasicInformationController::class, 'patch
 
 Route::post('/cv/work-experiences', [WorkExperienceController::class, 'createWorkExperience']);
 Route::patch('/cv/work-experiences/{id}', [WorkExperienceController::class, 'updateWorkExperience']);
+Route::delete('/cv/work-experiences/{id}', [WorkExperienceController::class, 'deleteWorkExperience']);
