@@ -21,7 +21,8 @@ class BasicInformationRequest extends FormRequest
         return [
             'name' => 'nullable',
             'email' => 'nullable|email',
-            'phone' => 'nullable'
+            'phone' => 'nullable',
+            'avatar' => 'required|image'
         ];
     }
 

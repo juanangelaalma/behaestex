@@ -49,7 +49,7 @@ code: 200
 }
 ```
 
-## PATCH Basic Information
+## POST Basic Information
 
 endpoint: /api/cv/basic-information
 
