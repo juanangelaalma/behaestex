@@ -48,4 +48,14 @@ class EducationController extends Controller
             'errors' => null,
         ], 201);
     }
+
+    public function deleteEducation($id)
+    {
+        Education::destroy($id);
+        return response()->json([
+            'data' => true,
+            'message' => 'Delete data success',
+            'errors' => null,
+        ], 200);
+    }
 }

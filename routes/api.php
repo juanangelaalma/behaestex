@@ -27,3 +27,4 @@ Route::delete('/cv/work-experiences/{id}', [WorkExperienceController::class, 'de
 
 Route::post('/cv/educations', [EducationController::class, 'createEducation']);
 Route::patch('/cv/educations/{id}', [EducationController::class, 'updateEducation']);
+Route::delete('/cv/educations/{id}', [EducationController::class, 'deleteEducation']);
