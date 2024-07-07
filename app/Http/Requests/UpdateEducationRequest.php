@@ -24,10 +24,10 @@ class UpdateEducationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'attainment' => 'nullable|integer|min:0|max:12',
-            'school' => 'nullable|string|max:100',
-            'from' => ['nullable', 'regex:/^(0[1-9]|1[0-2])-\d{4}$/'],
-            'to' => ['nullable', 'regex:/^(0[1-9]|1[0-2])-\d{4}$/'],
+            'attainment' => 'required|integer|min:0|max:12',
+            'school' => 'required|string|max:100',
+            'from' => ['required', 'regex:/^(0[1-9]|1[0-2])-\d{4}$/'],
+            'to' => ['required', 'regex:/^(0[1-9]|1[0-2])-\d{4}$/'],
             'description' => 'nullable|string'
         ];
     }

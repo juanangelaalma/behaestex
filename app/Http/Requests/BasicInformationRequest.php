@@ -19,10 +19,11 @@ class BasicInformationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'nullable',
-            'email' => 'nullable|email',
-            'phone' => 'nullable',
-            'avatar' => 'required|image'
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'address' => 'required',
+            'avatar' => 'nullable|image'
         ];
     }
 

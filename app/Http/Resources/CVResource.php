@@ -17,6 +17,7 @@ class CVResource extends JsonResource
                 'email' => $this->email,
                 'phone' => $this->phone,
                 'summary' => $this->summary,
+                'address' => $this->address,
                 'work_experiences' => WorkExperienceResource::collection($this->work_experiences),
                 'educations' => EducationResource::collection($this->educations),
                 'skills' => SkillResource::collection($this->skills),

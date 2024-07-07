@@ -21,7 +21,7 @@ class WorkExperienceController extends Controller
 
         return response()->json([
             'data' => new WorkExperienceResource($work_experience),
-            'message' => 'Created data success',
+            'message' => 'Create data success',
             'errors' => null,
         ], 201);
     }
@@ -44,7 +44,7 @@ class WorkExperienceController extends Controller
 
         return response()->json([
             'data' => new WorkExperienceResource($work_experience),
-            'message' => 'Updated data success',
+            'message' => 'Update data success',
             'errors' => null,
         ], 201);
     }

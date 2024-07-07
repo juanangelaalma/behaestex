@@ -29,8 +29,8 @@ class CVSeeder extends Seeder
             'user_id' => $user->id,
             'title' => 'Backend Developer',
             'company' => 'PT Peduly Gotong Royong',
-            'from' => '09/2022',
-            'to' => '09/2023',
+            'from' => '09-2022',
+            'to' => '09-2023',
             'description' => 'Created virtual payment features with Midtrans services that have processed more than 1000 transactions'
         ]);
 
@@ -38,8 +38,8 @@ class CVSeeder extends Seeder
             'user_id' => $user->id,
             'attainment' => 4,
             'school' => 'Universitas Negeri Surabaya',
-            'from' => '09/2022',
-            'to' => '09/2023',
+            'from' => '09-2022',
+            'to' => '09-2023',
             'description' => 'Created virtual payment features with Midtrans services that have processed more than 1000 transactions'
         ]);
 

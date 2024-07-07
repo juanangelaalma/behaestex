@@ -21,7 +21,7 @@ class EducationController extends Controller
 
         return response()->json([
             'data' => new EducationResource($education),
-            'message' => 'Created data success',
+            'message' => 'Create data success',
             'errors' => null,
         ], 201);
     }

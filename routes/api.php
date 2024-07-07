@@ -18,15 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/cv', [CVController::class, 'getFullCV']);
-Route::post('/cv/basic-information', [BasicInformationController::class, 'patchBasicInformation']);
+Route::get('/cv', [CVController::class, 'getFullCV'])->middleware('user.check');
+Route::post('/cv/basic-information', [BasicInformationController::class, 'updateBasicInformation']);
+
+Route::put('/cv/summary', [BasicInformationController::class, 'updateSummary']);
 
 Route::post('/cv/work-experiences', [WorkExperienceController::class, 'createWorkExperience']);
-Route::patch('/cv/work-experiences/{id}', [WorkExperienceController::class, 'updateWorkExperience']);
+Route::put('/cv/work-experiences/{id}', [WorkExperienceController::class, 'updateWorkExperience']);
 Route::delete('/cv/work-experiences/{id}', [WorkExperienceController::class, 'deleteWorkExperience']);
 
 Route::post('/cv/educations', [EducationController::class, 'createEducation']);
-Route::patch('/cv/educations/{id}', [EducationController::class, 'updateEducation']);
+Route::put('/cv/educations/{id}', [EducationController::class, 'updateEducation']);
 Route::delete('/cv/educations/{id}', [EducationController::class, 'deleteEducation']);
 
 Route::put('/cv/skills', [SkillController::class, 'updateAllSkills']);

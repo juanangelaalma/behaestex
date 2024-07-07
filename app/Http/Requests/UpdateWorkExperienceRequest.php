@@ -24,10 +24,10 @@ class UpdateWorkExperienceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'nullable|string|max:255',
-            'company' => 'nullable|string|max:255',
-            'from' => ['nullable', 'regex:/^(0[1-9]|1[0-2])-\d{4}$/'],
-            'to' => ['nullable', 'regex:/^(0[1-9]|1[0-2])-\d{4}$/'],
+            'title' => 'required|string|max:255',
+            'company' => 'required|string|max:255',
+            'from' => ['required', 'regex:/^(0[1-9]|1[0-2])-\d{4}$/'],
+            'to' => ['required', 'regex:/^(0[1-9]|1[0-2])-\d{4}$/'],
             'description' => 'nullable|string',
         ];
     }

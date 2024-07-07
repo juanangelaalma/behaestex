@@ -1,8 +1,34 @@
 # Backend API for CV
 
+## How to Run
+### 1. Clone this repo:
+```bash
+git clone https://github.com/juanangelaalma/behaestex.git
+```
+### 2. Change dir to behaestex:
+```
+cd behaestex
+```
+### 3. Install packages
+```bash
+composer install
+```
+### 4. Run server
+```bash
+make s
+```
+### 5. Run migration
+```bash
+make migrate
+```
+
+server will be running on http://localhost
+
+# API Documentation
+
 ## Get CV
 
-endpoint: /api/cv
+endpoint: GET /api/cv
 
 ### Response
 
@@ -51,19 +77,21 @@ code: 200
 
 ## POST Basic Information
 
-endpoint: /api/cv/basic-information
+endpoint: POST /api/cv/basic-information
 
 ### Request:
+#### headers:
+Content-Type: multipart/form-data
 
 #### body:
 
 ```json
 {
-    "name": "Budi Setiawan", // optional
-    "address": "Konoha", // optional
-    "email": "juanalma@gmail.com", // optional
-    "phone": "08332032", // optional
-    "summary": "lorem ipsum color dimmet sit amet...." // optional
+    "name": "Budi Setiawan",
+    "address": "Konoha",
+    "email": "juanalma@gmail.com",
+    "phone": "08332032",
+    "avatar": "FormData(image)" // optional
 }
 ```
 
@@ -73,7 +101,14 @@ code: 201
 
 ```json
 {
-    "data": null,
+    "data": {
+        "id": 1,
+        "name": "Budi Setiawan",
+        "address": "Konoha",
+        "email": "juanalma@gmail.com",
+        "phone": "08332032",
+        "avatar": "/uploads/avatar.jpg" // optional
+    },
     "message": "Update data success",
     "errors": null
 }
@@ -86,14 +121,44 @@ code: 400
     "data": null,
     "message": null,
     "errors": {
+        "name": ["Name is required"],
         "email": ["Must be an email"]
     }
 }
 ```
 
+## PUT Summary
+
+endpoint: PUT /api/cv/summary
+
+### Request:
+
+#### body:
+
+```json
+{
+    "summary": "lorem ipsum...."
+}
+```
+
+### Response:
+
+code: 201
+
+```json
+{
+    "data": {
+        "summary": "lorem ipsum..."
+    },
+    "message": "Update summary success",
+    "errors": null
+}
+```
+
+
 ## POST Work Experiences
 
-endpoint: /api/cv/work-experiences
+endpoint: POST /api/cv/work-experiences
 
 ### Request
 
@@ -119,11 +184,11 @@ code: 201
         "id": 1,
         "title": "Web Developer",
         "company": "Vidio",
-        "from": "08/2024",
-        "to": "10/2024",
+        "from": "08-2024",
+        "to": "10-2024",
         "description": "lorem ipsum..." // optional
     },
-    "message": "Successfully added work experience",
+    "message": "Create data success",
     "errors": null
 }
 ```
@@ -140,9 +205,9 @@ code 400
 }
 ```
 
-## PATCH Work Experiences
+## PUT Work Experiences
 
-endpoint: /api/cv/work-experiences/:id
+endpoint: PUT /api/cv/work-experiences/:id
 
 ### Request
 
@@ -150,10 +215,10 @@ body:
 
 ```json
 {
-    "title": "Web Developer", // optional
-    "company": "Vidio", // optional
-    "from": "08/2024", // optional
-    "to": "10/2024", // optional
+    "title": "Web Developer",
+    "company": "Vidio",
+    "from": "08-2024",
+    "to": "10-2024",
     "description": "lorem ipsum..." // optional
 }
 ```
@@ -162,15 +227,22 @@ code: 201
 
 ```json
 {
-    "data": null,
-    "message": "Successfully updated work experience",
+    "data": {
+        "id": 1,
+        "title": "Web Developer",
+        "company": "Vidio",
+        "from": "08-2024",
+        "to": "10-2024",
+        "description": "lorem ipsum..." // optional
+    },
+    "message": "Update data success",
     "errors": null
 }
 ```
 
 ## DELETE Work Experiences
 
-endpoint: /api/cv/work-experiences/:id
+endpoint: DELETE /api/cv/work-experiences/:id
 
 ### Request
 
@@ -178,15 +250,15 @@ code: 200
 
 ```json
 {
-    "data": null,
-    "message": "Successfully delete work experience",
+    "data": true,
+    "message": "Delete data success",
     "errors": null
 }
 ```
 
 ## POST Education
 
-endpoint: /api/cv/educations
+endpoint: POST /api/cv/educations
 
 ### Request
 
@@ -216,7 +288,7 @@ code: 201
         "to": "10/2024",
         "description": "lorem...." // optional
     },
-    "message": "Successfully added education",
+    "message": "Create data success",
     "errors": null
 }
 ```
@@ -233,9 +305,9 @@ code 400
 }
 ```
 
-## PATCH Education
+## PUT Education
 
-endpoint: /api/cv/educations/:id
+endpoint: PUT /api/cv/educations/:id
 
 ### Request
 
@@ -243,10 +315,10 @@ body:
 
 ```json
 {
-    "attainment": 0, // optional
-    "school": "Uiversitas Negeri Surabaya", // optional
-    "from": "08/2024", // optional
-    "to": "10/2024", // optional
+    "attainment": 0,
+    "school": "Uiversitas Negeri Surabaya",
+    "from": "08/2024",
+    "to": "10/2024",
     "description": "lorem...." // optional
 }
 ```
@@ -255,15 +327,22 @@ code: 201
 
 ```json
 {
-    "data": null,
-    "message": "Successfully updated education",
+    "data": {
+        "id": 1,
+        "attainment": 0,
+        "school": "Uiversitas Negeri Surabaya",
+        "from": "08/2024",
+        "to": "10/2024",
+        "description": "lorem...."
+    },
+    "message": "Update data success",
     "errors": null
 }
 ```
 
 ## DELETE Education
 
-endpoint: /api/cv/educations/:id
+endpoint: DELETE /api/cv/educations/:id
 
 ### Request
 
@@ -271,58 +350,15 @@ code: 200
 
 ```json
 {
-    "data": null,
-    "message": "Successfully deleted education",
+    "data": true,
+    "message": "Delete data success",
     "errors": null
-}
-```
-
-## POST Skill
-
-endpoint: /api/cv/skills
-
-### Request
-
-body:
-
-```json
-{
-    "skill": "MYSQL",
-    "level": "basic"
-}
-```
-
-### Response:
-
-code: 201
-
-```json
-{
-    "data": {
-        "id": 1,
-        "skill": "MYSQL",
-        "level": "basic"
-    },
-    "message": "Successfully added skill",
-    "errors": null
-}
-```
-
-code 400
-
-```json
-{
-    "data": null,
-    "message": null,
-    "errors": {
-        "school": ["Skill is required"]
-    }
 }
 ```
 
 ## PUT Skill
 
-endpoint: /api/cv/skills
+endpoint: PUT /api/cv/skills
 
 ### Request
 
@@ -347,8 +383,19 @@ code: 201
 
 ```json
 {
-    "data": null,
-    "message": "Successfully updated education",
+    "data": [
+        {
+            "id": 1,
+            "skill": "MYSQL",
+            "level": "basic"
+        },
+        {
+            "id": 2,
+            "skill": "JavaScript",
+            "level": "basic"
+        }
+    ],
+    "message": "Updated data success",
     "errors": null
 }
 ```

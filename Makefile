@@ -6,3 +6,6 @@ shell:
 
 shell-db:
 	docker exec -it behaestex-mysql-1 bash
+
+migrate:
+	./vendor/bin/sail artisan migrate
