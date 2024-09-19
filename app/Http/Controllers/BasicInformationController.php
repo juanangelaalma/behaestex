@@ -17,12 +17,12 @@ class BasicInformationController extends Controller
 
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
-            
+
             $filename = time() . '.' . $file->getClientOriginalName();
             $path = "uploads/$filename";
-            
+
             $file->move(public_path('uploads'), $filename);
-            
+
             $basic_information['avatar'] = $path;
 
             if (File::exists($user->avatar)) {

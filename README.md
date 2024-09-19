@@ -44,7 +44,7 @@ code: 200
         "email": "juanangelaalma@gmail.com",
         "phone": "83121940403",
         "summary": "I am a highly skilled web developer with over 2 years of coding experience. Renowned for my unwavering dedication and exceptional ability to meet tight deadlines, I consistently deliver outstanding results. I thrive in demanding environments and possess a track record of effective leadership and proficient project management skills.",
-        "work_experiences": [
+        "workExperiences": [
             {
                 "id": 1,
                 "from": "08-2023",

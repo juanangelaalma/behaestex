@@ -13,7 +13,7 @@ class EducationController extends Controller
     public function createEducation(CreateEducationRequest $request)
     {
         $user = User::first();
-        
+
         $new_education = $request->validated();
         $new_education['user_id'] = $user->id;
 

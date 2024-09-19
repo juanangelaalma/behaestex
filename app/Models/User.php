@@ -15,7 +15,7 @@ class User extends Model
         'address',
     ];
 
-    public function work_experiences() {
+    public function workExperiences() {
         return $this->hasMany(WorkExperience::class);
     }
 
